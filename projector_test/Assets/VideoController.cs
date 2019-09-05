@@ -15,6 +15,8 @@ using UnityEngine.EventSystems;
  * PlayButton(): Reactivates the vpSurface gameobject and plays the video.
 
  * EndButton(): Deactivates the vpSurface gameobject and stops the video.
+ 
+ * SetVPProperties(): Sets the 
 */
 
 public class VideoController : MonoBehaviour
@@ -25,7 +27,7 @@ public class VideoController : MonoBehaviour
     public Button play, pause, end;
 
     public GameObject vpSurface;
-    private RenderTexture vpRenderTexture = vpSurface.GetComponent<RenderTexture>();
+    public RenderTexture vpRenderTexture;
 
     public VideoPlayer vp;
     public VideoClip[] videos;
@@ -79,13 +81,13 @@ public class VideoController : MonoBehaviour
     {
         vpSurface.SetActive(false);
         vp.Stop();
-        //vpRenderTexture.Release();
+        vpRenderTexture.Release();
         
     }
 
     void SetVPProperties() //Sets the Audio Source and targetTexture for the Video Player
     {
-        //vp.targetTexture = vpRenderTexture;
+        vp.targetTexture = vpRenderTexture;
         //vp.SetTargetAudioSource(vpAudio);
     }
 
