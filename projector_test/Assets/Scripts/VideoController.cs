@@ -13,8 +13,8 @@ using UnityEngine.EventSystems;
 
 public class VideoController : MonoBehaviour
 {
-    public GameObject vpSurface;
-    public RenderTexture vpRenderTexture;
+    public GameObject vpSurface; //The quad that the VideoPlayer is drawn onto
+    public RenderTexture vpRenderTexture;//The RenderTexture attached to the quad that the VideoPlayer is drawn onto
 
     public VideoPlayer vp;
     public VideoClip[] videos;
